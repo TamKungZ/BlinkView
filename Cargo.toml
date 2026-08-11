@@ -1,0 +1,18 @@
+[package]
+name = "blinkview"
+version = "0.1.1"
+edition = "2021"
+authors = ["TamKungZ_ <dev@tamkungz.me>"]
+description = "A tiny, fast image/video folder viewer with bounded preloading, thumbnails, audio, and an optional resident background mode."
+license = "MIT"
+
+[dependencies]
+minifb = "0.28"
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg", "gif", "bmp", "webp", "tiff", "ico", "pnm", "qoi"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+opt-level = 3
