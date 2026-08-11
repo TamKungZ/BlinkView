@@ -289,6 +289,8 @@ git push origin v0.1.1
 
 Linux release packages are built on Ubuntu 22.04 to avoid requiring a newer glibc than common LTS desktops provide.
 
+For manual runs, select the branch or commit to build in GitHub's **Run workflow** menu, then enter the release tag such as `v0.1.1`. The release action publishes that tag for the selected commit.
+
 ## Known limitations of 0.1.1
 
 - Audio synchronization is intentionally approximate, especially immediately after pause/resume or heavy frame drops.
