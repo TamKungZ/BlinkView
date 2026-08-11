@@ -287,6 +287,8 @@ git push origin v0.1.1
 
 `.github/workflows/release.yml` builds Linux `.tar.gz`/`.deb`/`.rpm`, Windows `.zip`/`.msi`/setup `.exe`, and a simple macOS app package. Manual runs create a draft release.
 
+Linux release packages are built on Ubuntu 22.04 to avoid requiring a newer glibc than common LTS desktops provide.
+
 ## Known limitations of 0.1.1
 
 - Audio synchronization is intentionally approximate, especially immediately after pause/resume or heavy frame drops.
