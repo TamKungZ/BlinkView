@@ -4,12 +4,15 @@ cargo build --release
 
 $InstallDir = Join-Path $env:LOCALAPPDATA 'BlinkView'
 $Exe = Join-Path $InstallDir 'blinkview.exe'
+$Icon = Join-Path $InstallDir 'blinkview.ico'
 New-Item -ItemType Directory -Force -Path $InstallDir | Out-Null
 Copy-Item -Force '.\target\release\blinkview.exe' $Exe
+Copy-Item -Force '.\assets\blinkview.ico' $Icon
 
 $AppKey = 'HKCU:\Software\Classes\Applications\blinkview.exe'
 New-Item -Force -Path $AppKey | Out-Null
 New-ItemProperty -Path $AppKey -Name 'FriendlyAppName' -PropertyType String -Value 'BlinkView' -Force | Out-Null
+New-ItemProperty -Path $AppKey -Name 'DefaultIcon' -PropertyType String -Value $Icon -Force | Out-Null
 New-Item -Force -Path "$AppKey\shell\open\command" | Out-Null
 Set-Item -Path "$AppKey\shell\open\command" -Value ('"{0}" "%1"' -f $Exe)
 New-Item -Force -Path "$AppKey\SupportedTypes" | Out-Null

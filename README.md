@@ -226,6 +226,14 @@ blinkview --startup enable
 
 Installs the binary, desktop entry, thumbnailer, and background startup entry. It does **not** forcibly change your default app.
 
+Build Linux release packages:
+
+```bash
+./scripts/package-linux.sh
+```
+
+Outputs a GNU/Linux tarball, `.deb`, and `.rpm` to `dist/`. The RPM step requires `rpmbuild`.
+
 ### Windows
 
 ```powershell
@@ -236,6 +244,14 @@ Installs into `%LOCALAPPDATA%\BlinkView`, registers BlinkView under **Open with*
 
 Modern Windows may still ask the user to select BlinkView as the default app.
 
+Build Windows packages:
+
+```powershell
+.\scripts\package-windows.ps1
+```
+
+Outputs a `.zip` to `dist/`. MSI output requires WiX Toolset v4 (`wix`), and setup `.exe` output requires Inno Setup (`ISCC.exe`).
+
 ### macOS
 
 ```bash
@@ -243,6 +259,14 @@ Modern Windows may still ask the user to select BlinkView as the default app.
 ```
 
 Installs the CLI binary to `~/.local/bin` and enables the per-user LaunchAgent.
+
+Build a simple macOS app bundle package:
+
+```bash
+./scripts/package-macos.sh
+```
+
+Outputs a `.app` archive to `dist/`; on macOS it also creates a `.dmg` when `hdiutil` is available.
 
 ## Cross-platform CI
 
