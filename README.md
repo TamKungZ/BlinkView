@@ -276,6 +276,17 @@ Outputs a `.app` archive to `dist/`; on macOS it also creates a `.dmg` when `hdi
 - Windows
 - macOS
 
+## GitHub Releases
+
+Push a version tag to build release assets and publish them to GitHub Releases:
+
+```bash
+git tag v0.1.1
+git push origin v0.1.1
+```
+
+`.github/workflows/release.yml` builds Linux `.tar.gz`/`.deb`/`.rpm`, Windows `.zip`/`.msi`/setup `.exe`, and a simple macOS app package. Manual runs create a draft release.
+
 ## Known limitations of 0.1.1
 
 - Audio synchronization is intentionally approximate, especially immediately after pause/resume or heavy frame drops.
